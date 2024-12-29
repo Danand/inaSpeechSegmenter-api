@@ -1,0 +1,5 @@
+inaSpeechSegmenter[cpu] @ git+https://github.com/Danand/inaSpeechSegmenter@7b68086 ; sys_platform != "darwin"
+inaSpeechSegmenter[silicon] @ git+https://github.com/Danand/inaSpeechSegmenter@7b68086 ; sys_platform == "darwin"
+inaSpeechSegmenter-api-models==0.1.3
+fastapi==0.115.6
+uvicorn==0.34.0
