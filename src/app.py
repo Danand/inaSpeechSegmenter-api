@@ -24,7 +24,7 @@ logger = logging.Logger(
 app = FastAPI()
 
 @app.post(
-    path=f"/{GetSegmentsRequest.get_endpoint()}",
+    path=GetSegmentsRequest.get_endpoint(),
     response_model=GetSegmentsResponse,
 )
 async def get_segments(
