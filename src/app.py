@@ -8,18 +8,24 @@ from inaSpeechSegmenter.segmenter import Segmenter
 
 import base64
 import logging
+import sys
 
 from os import remove, environ
 from typing import List, Tuple
 
 from fastapi import FastAPI
 
-log_level = environ.get("INA_SPEECH_SEGMENTER_API_LOG_LEVEL", "DEBUG")
+log_level_str = environ.get("INA_SPEECH_SEGMENTER_API_LOG_LEVEL", "DEBUG")
 
-logger = logging.Logger(
-    name=__name__,
-    level=getattr(logging, log_level),
+log_level = getattr(logging, log_level_str)
+
+logging.basicConfig(
+    level=log_level,
+    format="%(asctime)s [%(levelname)s] %(name)s (%(filename)s:%(lineno)d) %(funcName)s() - %(message)s",
+    stream=sys.stdout,
 )
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
